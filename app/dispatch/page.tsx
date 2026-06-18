@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 export const metadata = {
   title: "Dispatch — The Phoenix Protocol",
   description: "The Phoenix Dispatch: weekly essays on platform shifts, creator strategy, and the mechanics of attention.",
@@ -28,7 +30,12 @@ export default function DispatchPage() {
               )}
             </div>
             <h2 className="text-xl font-bold text-slate-200 mb-2">{issue.title}</h2>
-            <p className="text-slate-400 text-sm leading-relaxed">{issue.summary}</p>
+            <p className="text-slate-400 text-sm leading-relaxed mb-4">{issue.summary}</p>
+            {issue.href && (
+              <Link href={issue.href} className="text-sm text-amber-500 hover:text-amber-400 transition-colors font-medium">
+                Read Issue {issue.number} →
+              </Link>
+            )}
           </article>
         ))}
       </div>
@@ -63,21 +70,24 @@ const issues = [
     number: "00",
     title: "The Manifesto Issue",
     date: "July 8, 2026",
-    status: "coming-soon",
-    summary: "The End of Viral. What changed in April 2026. The Thunder vs Phoenix framework. A case study from my own account. The invitation to build."
+    status: "live",
+    summary: "The End of Viral. What changed in April 2026. The Thunder vs Phoenix framework. A case study from my own account. The invitation to build.",
+    href: "/dispatch/issue-00",
   },
   {
     number: "01",
     title: "Embedding: How the Algorithm Reads You, and How to Write Back",
     date: "July 15, 2026",
     status: "coming-soon",
-    summary: "Reply depth is now a first-class ranking signal. How to use conversation as distribution. The 30-minute daily reply strategy."
+    summary: "Reply depth is now a first-class ranking signal. How to use conversation as distribution. The 30-minute daily reply strategy.",
+    href: null,
   },
   {
     number: "02",
     title: "Recollection: Building a Brand That Remembers",
     date: "July 22, 2026",
     status: "coming-soon",
-    summary: "Bergson's two memories applied to brand strategy. How to build recollective memory instead of habit loops. The trust ledger."
+    summary: "Bergson's two memories applied to brand strategy. How to build recollective memory instead of habit loops. The trust ledger.",
+    href: null,
   },
 ];
